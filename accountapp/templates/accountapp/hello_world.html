@@ -12,8 +12,16 @@
     </style>
 
     <div style="height: 20rem; background-color: turquoise; border-radius: 1rem; margin: 2rem">
-        <h1>test</h1>
-
+        <h1>
+            test
+        </h1>
+        <form action="/accounts/hello_world/" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="post">
+        </form>
+        <h1>
+            {{ text }}
+        </h1>
     </div>
 
 {% endblock %}
