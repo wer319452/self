@@ -11,17 +11,22 @@
         }
     </style>
 
-    <div style="height: 20rem; background-color: turquoise; border-radius: 1rem; margin: 2rem">
-        <h1>
-            test
+    <div style="border-radius: 1rem; margin: 2rem; text-align: center">
+        <h1 style="font-family: 'Shadows Into Light', cursive;">
+            Hello world List
         </h1>
         <form action="/accounts/hello_world/" method="post">
             {% csrf_token %}
+            <div>
+                <input type="text" name="hello_world_input">
+            </div>
             <input type="submit" class="btn btn-primary" value="post">
         </form>
+        {% if new_hello_world_output %}
         <h1>
-            {{ text }}
+            {{ new_hello_world_output.text }}
         </h1>
+        {% endif %}
     </div>
 
 {% endblock %}
