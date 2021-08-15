@@ -13,3 +13,10 @@
 .Polarbear_header_button {
     text-align: center;
 }
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 13px;
+    }
+
+}
