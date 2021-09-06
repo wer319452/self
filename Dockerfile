@@ -10,6 +10,10 @@ RUN echo 'SECRET_KEY=django-insecure-vqa!k8!ya&m=3+8gro#982f=ptp4jvjsv@%r8fgob_1
 
 RUN pip install -r requirements.txt
 
+RUN pip install gunicorn
+
+RUN python manage.py migrate
+
 EXPOSE 8000
 
-CMD ['python', 'manage.py', 'runserver', '0.0.0.0:8000']
+CMD ["gunicorn", "polar_bear.wsgi", "--bind", "0.0.0.0:8000"]
