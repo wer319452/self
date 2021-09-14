@@ -16,7 +16,7 @@ from pathlib import Path
 import environ
 from django.urls import reverse_lazy
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env_list = dict()
 
