@@ -9,30 +9,17 @@ services:
     networks:
       - bear_network
     volumes:
-      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
+      - /home/alsdn319452/nginx.conf:/etc/nginx/nginx.conf
       - bear_static:/data/static/
       - bear_media:/data/media/
 
   django:
-    image: bear_django:4.1
+    image: pp_django:3
     networks:
       - bear_network
     volumes:
       - bear_static:/home/self/staticfiles/
       - bear_media:/home/self/media/
-
-  mariadb:
-    image: mariadb:10.5
-    networks:
-      - bear_network
-    volumes:
-      - bear_mariadb:/var/lib/mysql
-    environment:
-      MARIADB_ROOT_PASSWORD: password
-      MARIADB_DATABASE: django
-      MARIADB_USER: django
-      MARIADB_PASSWORD: password
-
 
 networks:
   bear_network:
@@ -40,4 +27,3 @@ networks:
 volumes:
   bear_static:
   bear_media:
-  bear_mariadb:
