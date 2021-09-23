@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    image: nginx:1.19.5
+    ports:
+      - 80:80
+    networks:
+      - bear_network
+    volumes:
+      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
+      - bear_static:/data/static/
+      - bear_media:/data/media/
+
+  django:
+    image: bear_django:3
+    networks:
+      - bear_network
+    volumes:
+      - bear_static:/home/self/staticfiles/
+      - bear_media:/home/self/media/
+
+networks:
+  bear_network:
+
+volumes:
+  bear_static:
+  bear_media:
