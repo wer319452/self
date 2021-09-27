@@ -2,7 +2,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo 'fffsdfsdfdasfaa'
+RUN echo 'aasdfswwewf'
 
 RUN git clone https://github.com/wer319452/self.git
 

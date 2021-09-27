@@ -14,7 +14,7 @@ services:
       - bear_media:/data/media/
 
   django:
-    image: bear_django:4.1
+    image: bear_django:4
     networks:
       - bear_network
     volumes:
