@@ -20,6 +20,10 @@ services:
     volumes:
       - bear_static:/home/self/staticfiles/
       - bear_media:/home/self/media/
+    secrets:
+      - DJANGO_SECRET_KEY
+      - MARIADB_USER
+      - MARIADB_PASSWORD
 
   mariadb:
     image: mariadb:10.5
@@ -27,6 +31,10 @@ services:
       - bear_network
     volumes:
       - bear_mariadb:/var/lib/mysql
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
     environment:
       MARIADB_ROOT_PASSWORD: password
       MARIADB_DATABASE: django
@@ -40,3 +48,13 @@ volumes:
   bear_static:
   bear_media:
   bear_mariadb:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
+  MARIADB_ROOT_PASSWORD:
+    external: true
+  MARIADB_USER:
+    external: true
+  MARIADB_PASSWORD:
+    external: true
