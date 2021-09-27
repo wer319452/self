@@ -14,7 +14,7 @@ services:
       - bear_media:/data/media/
 
   django:
-    image: bear_django:4
+    image: bear_django:5
     networks:
       - bear_network
     volumes:
@@ -36,10 +36,10 @@ services:
       - MARIADB_USER
       - MARIADB_PASSWORD
     environment:
-      MARIADB_ROOT_PASSWORD: password
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
       MARIADB_DATABASE: django
-      MARIADB_USER: django
-      MARIADB_PASSWORD: password
+      MARIADB_USER_FILE: /run/secrets/MARIADB_USER
+      MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
 
 networks:
   bear_network:
